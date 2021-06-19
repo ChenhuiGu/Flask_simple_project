@@ -52,10 +52,7 @@ def init_log(log_path, log_name, log_level="DEBUG"):
     logging.config.dictConfig(log_conf)
 
 
-'''
-初始化日志
-'''
-
+# 日志
 log_path = os.path.join(CUR_PATH, "./log")
 if not os.path.exists(log_path):
     os.makedirs(log_path)

@@ -1,16 +1,15 @@
-import config
-import traceback
 from utils.MySQLEngine import MySQLEngine
 from utils.srf_log import logger
+import config
 
 
 class DBInterface:
     def __init__(self):
         self.database = MySQLEngine()
         self.database.connect(db_host=config.mysql_host,
-                                db_user=config.mysql_user,
-                                db_pwd=config.mysql_pwd,
-                                db=config.mysql_db)
+                              db_user=config.mysql_user,
+                              db_pwd=config.mysql_pwd,
+                              db=config.mysql_db)
         logger.info(f'DBInterface init')
 
 
@@ -40,10 +39,8 @@ def load_dbinterface():
     _global_dict['dbinterface'] = DBInterface()
 
 
-
 def init_load():
     load_dbinterface()
-
 
 
 if __name__ == "__main__":

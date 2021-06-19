@@ -4,8 +4,6 @@
 import traceback
 import pymysql
 from dbutils.pooled_db import PooledDB
-
-from config import mysql_host,mysql_pwd,mysql_fund_db
 from utils.srf_log import logger
 
 class MySQLEngine(object):
@@ -150,12 +148,3 @@ class MySQLEngine(object):
                          'exception: %s', traceback.format_exc())
 
 
-
-
-if __name__ == '__main__':
-    sql_engine = MySQLEngine()
-    sql = 'select * from `fund_data`.`fund_fee`  limit 1'
-    sql_engine.connect(db_host=mysql_host, db_port=3306, db_user='work', db_pwd=mysql_pwd,
-        db=mysql_fund_db)
-    for row in sql_engine.select(sql):
-        print(row)
